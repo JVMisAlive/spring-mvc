@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:lang="${#locale.language}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{locale.title}"></title>
+</head>
+<body>
+<div>
+    <div style="text-align: right;padding:5px;margin:5px 0px;background:#c8cdde;">
+        <a th:href="@{/cars?locale=en}">English</a>
+        &nbsp;|&nbsp;
+        <a th:href="@{/cars?locale=ru}">Russian</a>
+    </div>
+    <h1 th:text="#{locale.title}"></h1>
+    <table>
+        <thead>
+        <tr>
+            <td th:text = "#{locale.name}"></td>
+            <td th:text = "#{locale.color}"></td>
+            <td th:text = "#{locale.series}"></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cars : ${carAttribute}">
+            <th th:text="${cars.name}"></th>
+            <th th:text="${cars.color}"></th>
+            <th th:text="${cars.series}"></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
